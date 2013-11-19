@@ -1,3 +1,4 @@
+src/main/scala/com/pulpit/config/AuthVariables.scala
 *.class
 *.log
 
