@@ -20,7 +20,7 @@ object PulpitServer {
     println("Starting on port:"+port)
     ServerBuilder()
       .codec(Http())
-      .name("hello-server")
+      .name("pulpit-server")
       .bindTo(new InetSocketAddress(port))
       .build(new PulpitServerResponder)
     println("Started.")
@@ -32,7 +32,7 @@ class PulpitServerResponder extends Service[HttpRequest, HttpResponse] {
     val response = Response()
     response.setStatusCode(200)
     response.setContentTypeJson
-    response.setContentString(TweetWord.getTopJSON(200))
+    response.setContentString(TweetWord.getTopJSON(20a0))
     Future(response)
   }
 }
