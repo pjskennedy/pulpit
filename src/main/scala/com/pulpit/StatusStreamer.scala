@@ -1,7 +1,7 @@
 
 package com.pulpit
 
-import com.pulpit.models.Tweet
+import com.pulpit.models.TweetWord
 import com.twitter.util.Time
 import com.pulpit.config.AuthVariables
 import twitter4j._
@@ -31,7 +31,7 @@ object Util {
     var thusfar: Set[String] = Set()
     val startingTime: Long = Time.now.inMilliseconds  
     // Functions called by Twitter4j
-    def onStatus(status: Status) { Tweet.propogate(status.getText) }
+    def onStatus(status: Status) { TweetWord.propogate(status) }
     // other not implemented functions
     def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {}
     def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {}

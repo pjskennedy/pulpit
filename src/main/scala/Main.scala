@@ -5,8 +5,8 @@ import com.twitter.finagle.Service
 import com.twitter.util.Future
 import java.net.InetSocketAddress
 import util.Properties
-import com.pulpit.models.Watchable
 import com.pulpit.StatusStreamer
+import com.pulpit.models.TweetWord
 
 object PulpitStreamer {
   def main(args: Array[String]) {
@@ -32,7 +32,7 @@ class PulpitServerResponder extends Service[HttpRequest, HttpResponse] {
     val response = Response()
     response.setStatusCode(200)
     response.setContentTypeJson
-    response.setContentString(Watchable.getTopInJSON(20))
+    response.setContentString(TweetWord.getTopJSON(200))
     Future(response)
   }
 }
